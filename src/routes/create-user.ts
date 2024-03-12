@@ -38,6 +38,7 @@ export async function createUser(app: FastifyInstance) {
       avatar: user.avatarUrl,
     }, {
       sub: user.id,
+      expiresIn: '30 days'
     })
 
     return { token }

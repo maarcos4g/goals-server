@@ -1,9 +1,10 @@
+import fastify from "fastify"
 import fastifyCors from "@fastify/cors"
 import fastifyJwt from "@fastify/jwt"
-import fastify from "fastify"
 
 import { env } from "@/env"
 import { createUser } from "@/routes/create-user"
+import { createGoal } from "@/routes/create-goal"
 
 const app = fastify()
 
@@ -17,6 +18,7 @@ app.register(fastifyJwt, {
 
 //routes
 app.register(createUser)
+app.register(createGoal)
 
 app.listen({
   port: 3333,
