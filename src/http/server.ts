@@ -9,6 +9,7 @@ import { createGoal } from "@/routes/create-goal"
 import { createTransaction } from "@/routes/create-transaction"
 import { getGoal } from "@/routes/get-goal-data"
 import { deleteGoal } from "@/routes/delete-goal"
+import { watchEvents } from "@/utils/watch"
 
 const app = fastify()
 
@@ -26,6 +27,9 @@ app.register(createGoal)
 app.register(createTransaction)
 app.register(getGoal)
 app.register(deleteGoal)
+
+//async events
+watchEvents().catch((err) => console.log('Error to run events'))
 
 app.listen({
   port: 3333,

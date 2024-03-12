@@ -19,6 +19,9 @@ export async function getGoal(app: FastifyInstance) {
         const goal = await db.goal.findUnique({
           where: {
             id,
+            AND: {
+              deletedAt: null
+            }
           }
         })
 
@@ -29,10 +32,13 @@ export async function getGoal(app: FastifyInstance) {
         const transactions = await db.transaction.findMany({
           where: {
             goalId: id,
+            AND: {
+              deletedAt: null
+            }
           },
           orderBy: {
             createdAt: 'desc'
-          }
+          },
         })
 
         // statusCode = 200
