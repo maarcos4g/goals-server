@@ -5,6 +5,7 @@ import fastifyJwt from "@fastify/jwt"
 import { env } from "@/env"
 import { createUser } from "@/routes/create-user"
 import { createGoal } from "@/routes/create-goal"
+import { createTransaction } from "@/routes/create-transaction"
 
 const app = fastify()
 
@@ -19,6 +20,7 @@ app.register(fastifyJwt, {
 //routes
 app.register(createUser)
 app.register(createGoal)
+app.register(createTransaction)
 
 app.listen({
   port: 3333,
