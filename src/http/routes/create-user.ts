@@ -25,7 +25,7 @@ export async function createUser(app: FastifyInstance) {
     if (!user) {
       user = await db.user.create({
         data: {
-          avatarUrl,
+          avatarUrl: avatarUrl,
           email,
           name,
           authId,
