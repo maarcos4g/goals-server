@@ -1,7 +1,7 @@
 import { db } from '@/db/connection'
 import dayjs from 'dayjs'
 
-export async function watchEvents() {
+export async function autoDelete() {
   setInterval(async () => {
     const goals = await db.goal.findMany()
 

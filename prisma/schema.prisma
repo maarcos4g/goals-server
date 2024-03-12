@@ -35,7 +35,7 @@ model Goal {
   user   User   @relation(fields: [userId], references: [id])
   userId String
 
-  transactionn Transaction[]
+  transactions Transaction[]
 
   @@map("goals")
 }
