@@ -28,6 +28,10 @@ model Goal {
   name  String
   value Decimal @default(0.0)
 
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   user   User   @relation(fields: [userId], references: [id])
   userId String
 

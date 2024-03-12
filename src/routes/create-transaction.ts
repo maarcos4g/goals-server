@@ -39,7 +39,7 @@ export async function createTransaction(app: FastifyInstance) {
         if (error instanceof ZodError) {
           const details = error.errors.map((err) => err.message)
 
-          return { statusCode: 400, error: "Error to create goal", details }
+          return { statusCode: 400, error: "Error to create transaction", details }
         } else {
           console.error("Unexpected error:", error);
           return { statusCode: 500, error: "Internal Server Error" };
