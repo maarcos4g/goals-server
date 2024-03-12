@@ -3,9 +3,12 @@ import fastifyCors from "@fastify/cors"
 import fastifyJwt from "@fastify/jwt"
 
 import { env } from "@/env"
+
 import { createUser } from "@/routes/create-user"
 import { createGoal } from "@/routes/create-goal"
 import { createTransaction } from "@/routes/create-transaction"
+import { getGoal } from "@/routes/get-goal-data"
+import { deleteGoal } from "@/routes/delete-goal"
 
 const app = fastify()
 
@@ -21,6 +24,8 @@ app.register(fastifyJwt, {
 app.register(createUser)
 app.register(createGoal)
 app.register(createTransaction)
+app.register(getGoal)
+app.register(deleteGoal)
 
 app.listen({
   port: 3333,
