@@ -33,10 +33,7 @@ export async function createUser(app: FastifyInstance) {
       })
     }
 
-    const token = await jwt.sign({
-      name: user.name,
-      avatar: user.avatarUrl,
-    }, {
+    const token = jwt.sign({}, {
       sub: user.id,
       expiresIn: '30 days'
     })

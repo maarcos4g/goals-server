@@ -4,14 +4,15 @@ import fastifyJwt from "@fastify/jwt"
 
 import { env } from "@/env"
 
-import { createUser } from "@/http/routes/create-user"
-import { createGoal } from "@/http/routes/create-goal"
-import { createTransaction } from "@/http/routes/create-transaction"
-import { getGoal } from "@/http/routes/get-goal-details"
-import { deleteGoal } from "@/http/routes/delete-goal"
+import { createUser } from "./routes/create-user"
+import { createGoal } from "./routes/create-goal"
+import { createTransaction } from "./routes/create-transaction"
+import { getGoal } from "./routes/get-goal-details"
+import { deleteGoal } from "./routes/delete-goal"
 import { autoDelete } from "@/utils/auto-delete"
-import { getLastTransactions } from "@/http/routes/last-transactions"
+import { getLastTransactions } from "./routes/get-last-transactions"
 import { getProfile } from "./routes/get-profile"
+import { updateGoal } from "./routes/update-goal"
 
 const app = fastify()
 
@@ -31,6 +32,7 @@ app.register(getGoal)
 app.register(deleteGoal)
 app.register(getLastTransactions)
 app.register(getProfile)
+app.register(updateGoal)
 
 //async events
 autoDelete().catch((err) => console.log('Error to run events'))

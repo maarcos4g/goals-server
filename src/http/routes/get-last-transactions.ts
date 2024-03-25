@@ -22,7 +22,11 @@ export async function getLastTransactions(app: FastifyInstance) {
           select: {
             goals: {
               select: {
-                transactions: true
+                transactions: {
+                  where: {
+                    deletedAt: null
+                  }
+                }
               }
             }
           }
